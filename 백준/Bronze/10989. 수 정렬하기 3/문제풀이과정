@@ -1,0 +1,32 @@
+문제풀이과정
+오랜만에 java로 풀다보니 시행착오가 있었다. 
+java에서 원래 ArrayList를 이용해 유동적인 배열을 만들려고 했다. 하지만 그렇게 되면 시간을 너무 써버린다. 
+따라서 int [] count[]로 실행하였다. 
+그리고 우리가 기존에 하는 정렬들은 O(n)인 경우가 많다 하지만 그건 너무 느리기 때문에 이런 방식을 택했다.
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();        // 숫자 개수
+        int[] count = new int[10001]; // 숫자 범위가 1~10000이니까
+
+        
+        for (int i = 0; i < n; i++) {
+            int num = sc.nextInt();
+            // TODO: count 배열에서 num에 해당하는 칸을 1 증가시켜
+            count[num] +=1;
+        }
+
+        // 2단계: 1부터 10000까지 돌면서 출력
+        for (int i = 1; i <= 10000; i++) {
+            // TODO: count[i]만큼 반복하면서 i를 출력해
+            while(count[i] != 0){
+                System.out.println(i);
+                count[i]--;
+            }
+        }
+    }
+}
